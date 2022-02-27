@@ -13,8 +13,8 @@ public class Startup {
 		//		Which includes the loading of the Dictionary
 		
 		//	Reads the dictionary files and puts each entry into a HashMap
-		HashMap<String, ArrayList<String>> 			keys = readFile.loadKeys("./src/Dictionary");
-		HashMap<String, HashMap<String, String>>	dict = readFile.loadDict("./src/Dictionary");
+		HashMap<String, ArrayList<String>> 			keys = ReadFile.loadKeys("./src/Dictionary");
+		HashMap<String, HashMap<String, String>>	dict = ReadFile.loadDict("./src/Dictionary");
 		
 		
 		

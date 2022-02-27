@@ -2,7 +2,7 @@
 import java.util.*;
 import java.io.*;
 
-public class readFile {
+public class ReadFile {
 
 	 public static HashMap<String, HashMap<String, String>> loadDict(String filePath) {
 		    try {
