@@ -26,6 +26,13 @@ public class Startup {
 		//		keys.get("help");
 		
 		
+//		for(Key key : keys) {
+//			System.out.println(key.getPrimary() + "-" + key.getSecondary());
+//			for(String syn : key.getSynonyms())
+//				System.out.println("\t" + syn);
+//		
+//		}
+		
 		//	Enters the primary loop
 		mainLoop(dict, keys);
 		
@@ -55,16 +62,10 @@ public class Startup {
 			
 			//	Fetches the keys from the user's input
 			String input[] = ParseInput.getInput(scanner, keys);
-			String keyOne = input[0];
-			String keyTwo = input[1];
-			
-			//	If the user only enters one key, sets the second to be "generic"
-			if(keyTwo == "")
-				keyTwo = "generic";
 			
 			
 			//	Fetches the appropriate response
-			String response = fetchResponse(keyOne, keyTwo, dict);
+			String response = fetchResponse(input[0], input[1], dict);
 			
 			
 			//	Prints the response out
@@ -84,7 +85,7 @@ public class Startup {
 		
 		String out = "\nOS > ";
 		
-		if(keyOne == "")
+		if(keyOne == "generic")
 			return out + "Hm, it seems I was unable to understand what you said.";
 		
 		if(dict.get(keyOne) == null)

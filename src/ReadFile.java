@@ -109,7 +109,7 @@ public class ReadFile {
 		      while(myReader.hasNextLine()) {
 		    	  
 		    	  String primary = "";
-		    	  ArrayList<String> secondaries = new ArrayList<String>();
+		    	  String[] synonyms = new String[0];
 		    	  
 		    	  
 		    	  if(st.charAt(0) != '\t') {
@@ -120,10 +120,9 @@ public class ReadFile {
 		    		  
 		    		  //	Splits the second string by commas and stores values as a list
 		    		  //		This method is to remove any leading whitespace that might be present
-		    		  String[] synonyms = split[1].split(",");
-		    		  ArrayList<String> userInputs = new ArrayList<String>();
-		    		  for(String str : synonyms)
-		    			  userInputs.add(str.stripLeading());
+		    		  synonyms = split[1].split(",");
+		    		  for(int i = 0; i < synonyms.length; i++)
+		    			  synonyms[i] = synonyms[i].stripLeading();
 		    		  
 		    		
 	    			  primary = split[0];
@@ -146,17 +145,14 @@ public class ReadFile {
 		    		  String wwwyh = split2[0];
 		    		  wwwyh = wwwyh.replace("\t", "");
 		    		  
+
 		    		  
-		    		  secondaries.add(wwwyh);
+		    		  keys.add(new Key(primary, wwwyh, synonyms));
 
 		    		  
 		    		  //	Calls for the next line
 		    		  st = myReader.nextLine();
 	    		  }
-	    		  
-	    		  
-	    		  for(String secondary : secondaries)
-	    			  keys.add(new Key(primary, secondary));
 	    		  
 		      }
 		      

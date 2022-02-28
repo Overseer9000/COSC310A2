@@ -33,31 +33,26 @@ public class ParseInput {
 		
 		
 		
-		//	Checks for a bad input
-		if(!containsAnyPrimary(cleanInput, keys))
-			return new String[] {"", ""};
-		
 		
 		//	Checks the input for text matching a primary and a secondary key
 		for(String delim : delimInput)
 			for(Key key : keys) {
-				String primary = key.getPrimary();
-				String secondary = key.getSecondary();
 			
 				//	Java Strings are very silly, so this double .contains are used to ensure they equal
 				//		The == oprator rarely works properly with Strings
-				if(delim.contains(primary) && primary.contains(delim))
-					out[0] = delim;
+				if(matchesPrimary(delim, key))
+					out[0] = key.getPrimary();
 				
-				if(delim.contains(secondary) && secondary.contains(delim))
-					out[1] = delim;
+				
+				if(matchesSecondary(delim, key))
+					out[1] = key.getSecondary();
 			}
 		
 		
 		
 		//	By the earlier bad input check, this error shouldn't ever be thrown. It's here just in case
 		if(out[0] == null)
-			throw new Error("Uh oh, no primary key!");
+			out[0] = "generic";
 		
 		
 		//	Sets the default response to the secondary key  should nothing be entered
@@ -72,37 +67,27 @@ public class ParseInput {
 	
 	
 	
+	public static boolean matches(String one, String two) {
+		return one.contains(two) && two.contains(one);
+	}
 	
-	//	Checks if a String contains at least one item from a String array
-	public static boolean containsAny(String str, ArrayList<String> toCheck) {
-		
+	public static boolean matchesPrimary(String str, Key key) {
 		boolean contains = false;
 		
-		for(String check : toCheck)
-			if(str.contains(check))
-				contains = true;
+		if(matches(str, key.getPrimary()))
+			contains = true;
+			
 		
+		for(String check : key.getSynonyms())
+			if(str.contains(check) && check.contains(str))
+				contains = true;
+
 		
 		return contains;
 	}
 	
-	public static boolean containsAnyPrimary(String str, ArrayList<Key> toCheck) {
-		ArrayList<String> strs = new ArrayList<String>();
-		
-		for(Key primary : toCheck)
-			strs.add(primary.getPrimary());
-		
-		return containsAny(str, strs);
-	}
-	
-	public static boolean containsAnySecondary(String str, ArrayList<Key> toCheck) {
-		ArrayList<String> strs = new ArrayList<String>();
-		
-		for(Key secondary : toCheck)
-			if(!strs.contains(secondary.getSecondary()))
-				strs.add(secondary.getSecondary());
-		
-		return containsAny(str, strs);
+	public static boolean matchesSecondary(String str, Key key) {		
+		return matches(str, key.getSecondary()); 
 	}
 	
 	
