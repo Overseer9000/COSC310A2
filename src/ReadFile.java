@@ -4,31 +4,34 @@ import java.io.*;
 
 public class ReadFile {
 
+	//	Given a filepath to the Dictionary, returns a hashmap of the key pair and a response
 	 public static HashMap<String, HashMap<String, String>> loadDict(String filePath) {
 		    try {
-		      File myObj = new File(filePath);
-		      Scanner myReader = new Scanner(myObj);
+		    File myObj = new File(filePath);
+		    Scanner myReader = new Scanner(myObj);
 		      
-		      //Second HashMap necessary to determine what response the user will get based on the Key Value and the who/what/when/where/why/how and generic response
-		      HashMap<String, HashMap<String, String>> hashMap2 = new HashMap<String, HashMap<String, String>>();
+		    //	Second HashMap necessary to determine what response the user will get based on the Key Value and the who/what/when/where/why/how and generic response
+		    HashMap<String, HashMap<String, String>> hashMap2 = new HashMap<String, HashMap<String, String>>();
 		      
-		      String temptemp = "";
 		      
-	      	  String st = myReader.nextLine();
+		    //	Thanks Richard for the wonderfully descriptive variable name...
+		    String temptemp = "";
 		      
-		      while(myReader.hasNextLine()) {
+	      	String st = myReader.nextLine();
+		      
+		    while(myReader.hasNextLine()) {
 		    	  
-		    	  if(st.charAt(0) != '\t') {
+		    	if(st.charAt(0) != '\t') {
 		    		  
-		    		  //	Splits the read string to separate key values and user inputs
-		    		  String[] split = st.split(":");
+		    	//	Splits the read string to separate key values and user inputs
+		    	String[] split = st.split(":");
 		    		  
-		    		  //	Stores the Key and the potential user inputs into the Hash Map
-		    		  temptemp = split[0];
+		    	//	Stores the Key and the potential user inputs into the Hash Map
+		    	temptemp = split[0];
 		    		  
-			      	  st = myReader.nextLine();  
-		    	  }
-		    	  else {
+		    	st = myReader.nextLine();  
+		    	}
+		    	else {
 		    		  
 		    		  HashMap<String, String> responses = new HashMap<String, String>();
 		    		  
@@ -94,7 +97,7 @@ public class ReadFile {
 	 }
 	 
 	 
-	 //	Returns a hashmap of key values and their synonyms 
+	 //	Given a filepath to the Dictionary, returns a hashmap of key values and their synonyms
 	 public static ArrayList<Key> loadKeys(String filePath) {
 		    try {
 		      File myObj = new File(filePath);

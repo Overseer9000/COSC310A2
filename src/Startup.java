@@ -7,31 +7,18 @@ public class Startup {
 	
 	
 	//	Starts the program up, then enters the primary loop
+	//		Mostly loads the Dictionary into active memory
 	public static void main(String args[]) {
 		
 		// This section will have everything required for startup
 		//		Which includes the loading of the Dictionary
 		
 		//	Reads the dictionary file and puts each entry into a HashMap
-		HashMap<String, HashMap<String, String>>	dict = ReadFile.loadDict("./src/Dictionary");
+		HashMap<String, HashMap<String, String>>	dict = ReadFile.loadDict("./src/Dictionary.txt");
 		
 		//	Puts the keys into an ArrayList
-		ArrayList<Key>				 			keys = ReadFile.loadKeys("./src/Dictionary");
+		ArrayList<Key>				 			keys = ReadFile.loadKeys("./src/Dictionary.txt");
 		
-		
-		//	An example of how to fetch keys
-		//		keys.keySet();
-		
-		//	An example of how to fetch a key's synonyms
-		//		keys.get("help");
-		
-		
-//		for(Key key : keys) {
-//			System.out.println(key.getPrimary() + "-" + key.getSecondary());
-//			for(String syn : key.getSynonyms())
-//				System.out.println("\t" + syn);
-//		
-//		}
 		
 		//	Enters the primary loop
 		mainLoop(dict, keys);
@@ -80,6 +67,9 @@ public class Startup {
 	}
 	
 	
+	//	Stitches together an input
+	//		Mainly just puts the two keys into the HashMap to get a response
+	//		But handles some formatting & error catching
 	public static String fetchResponse(String keyOne, String keyTwo, HashMap<String, HashMap<String, String>> dict) {
 		
 		

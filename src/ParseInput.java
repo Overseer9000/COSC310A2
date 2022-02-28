@@ -66,18 +66,22 @@ public class ParseInput {
 	
 	
 	
-	
+	//	Given some Strings, see if they are equal
+	//		Uses "one.contains(two) && two.contains(one)" as the == operator DOES NOT WORK WELL with Strings
 	public static boolean matches(String one, String two) {
 		return one.contains(two) && two.contains(one);
 	}
 	
+	//	Same as above, but so long as the String matches at least one of the primary key or any of its synonyms
 	public static boolean matchesPrimary(String str, Key key) {
 		boolean contains = false;
 		
+		//	Checks the primary key itself
 		if(matches(str, key.getPrimary()))
 			contains = true;
 			
 		
+		//	Checks each of the synonyms
 		for(String check : key.getSynonyms())
 			if(str.contains(check) && check.contains(str))
 				contains = true;
