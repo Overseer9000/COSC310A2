@@ -95,18 +95,22 @@ public class ReadFile {
 	 
 	 
 	 //	Returns a hashmap of key values and their synonyms 
-	 public static HashMap<String, ArrayList<String>> loadKeys(String filePath) {
+	 public static ArrayList<Key> loadKeys(String filePath) {
 		    try {
 		      File myObj = new File(filePath);
 		      Scanner myReader = new Scanner(myObj);
+
 		      
-		      //First HashMap necessary to parse the users inputs for values the will relate to the Key Value
-		      HashMap<String, ArrayList<String>> hashMap1 = new HashMap<String, ArrayList<String>>();
+		      ArrayList<Key> keys = new ArrayList<Key>();
 		      
 		      
 	      	  String st = myReader.nextLine();
 		      
 		      while(myReader.hasNextLine()) {
+		    	  
+		    	  String primary = "";
+		    	  ArrayList<String> secondaries = new ArrayList<String>();
+		    	  
 		    	  
 		    	  if(st.charAt(0) != '\t') {
 		    		  
@@ -121,18 +125,44 @@ public class ReadFile {
 		    		  for(String str : synonyms)
 		    			  userInputs.add(str.stripLeading());
 		    		  
+		    		
+	    			  primary = split[0];
 		    		  
-		    		  //	Stores the Key and the potential user inputs into the Hash Map
-		    		  hashMap1.put(split[0], userInputs);
+			    	  st = myReader.nextLine();
 
 		    	  }
-		    	  
-		    	  st = myReader.nextLine();
+		    		  
+	    		  //	This while loop is to fix a scope problem that previously existed
+	    		  //		The inner hashmap needs to hold responses for every 'W'
+	    		  //		The previous implementation re-assigned the hashmap for every 'W'
+	    		  //		Thus previously, only the final 'W' was included
+	    		  while(st.charAt(0) == '\t') {
+	    			  
+	    			  if(!myReader.hasNextLine())
+	    				  break; 
+	    				  
+		    		  String[] split2 = st.split(":");
+		    		  
+		    		  String wwwyh = split2[0];
+		    		  wwwyh = wwwyh.replace("\t", "");
+		    		  
+		    		  
+		    		  secondaries.add(wwwyh);
+
+		    		  
+		    		  //	Calls for the next line
+		    		  st = myReader.nextLine();
+	    		  }
+	    		  
+	    		  
+	    		  for(String secondary : secondaries)
+	    			  keys.add(new Key(primary, secondary));
+	    		  
 		      }
 		      
 		      myReader.close();
 		      
-			  return hashMap1;
+			  return keys;
 		      
 		      
 		    } catch (FileNotFoundException e) {
