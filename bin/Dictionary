@@ -7,6 +7,7 @@ os: overseer, ai, you, computer
 	who: "I am OVERSEER. My job is to help the crew of the Blue Dwarf"
 	what: "I am a computer, an artificial intelligence. OS is my name; it is short for OVERSEER"
 	where: "I am everyone aboard the ship, but my processors are concentrated in the mainframe near the bridge"
+	how: "I am doing just fine"
 ship: dwarf, spaceship
 	generic: "You are currently aboard the research vessel Blue Dwarf"
 	who: "There are currently 1 crew memebers on Blue Dwarf"
@@ -30,7 +31,6 @@ repair: broken, worn out, fix,
 	when: "The repair bay is operataion from 9h00 until 17h00"
 	where: "The repair bay is located within the cargo hold"
 canteen: eat, hungry, chef, mess hall,
-	generic: ""
 	who: "The Chef on duty is [ERROR, NO KITCHEN STAFF]"
 	what: "You can get food at the canteen"
 	when: "The canteen is open at all hours"
@@ -50,7 +50,7 @@ earth: home, planet, command, mission
 	who: "Earth is currently home to the Human population"
 	what: "Earth is a planet located in the Milky Way galaxy"
 	where: "Earth is currently 548 light years away from that pale blue dot"
-crew: employee, employees, crew member, personnel, staff, workers, everyone
+crew: employee, employees, crew member, personnel, staff, workers, everyone, we
 	who: "There are currently 1 employees on the Blue Dwarf"
 	what: "Each employee is required to complete tasks aboard the Blue Dwarf"
 	when: "Crew are required to complete their tasks before their repsective deadline"

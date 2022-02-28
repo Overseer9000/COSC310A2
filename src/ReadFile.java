@@ -60,7 +60,7 @@ public class ReadFile {
 			    		  
 			    		  //	Appends a period to the response
 			    		  //		First item in the if statement is to prevent an empty string from throwing an error
-			    		  if(response.length() > 1 && response.charAt(response.length() - 1) != '.')
+			    		  if(response.length() > 1 && !(response.charAt(response.length() - 1) == '.' || response.charAt(response.length() - 1) == '!' || response.charAt(response.length() - 1) == '?'))
 			    			  response += '.';
 			    		  
 			    		  
