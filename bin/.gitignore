@@ -1,5 +1,4 @@
-/Dictionary.txt
-/Key.class
-/ParseInput.class
-/ReadFile.class
-/Startup.class
+/StartupTest.class
+/KeyTest.class
+/ParseInputTest.class
+/ReadFileTest.class

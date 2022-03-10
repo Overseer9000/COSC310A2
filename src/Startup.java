@@ -17,7 +17,7 @@ public class Startup {
 		HashMap<String, HashMap<String, String>>	dict = ReadFile.loadDict("./src/Dictionary.txt");
 		
 		//	Puts the keys into an ArrayList
-		ArrayList<Key>				 			keys = ReadFile.loadKeys("./src/Dictionary.txt");
+		ArrayList<Key>				 				keys = ReadFile.loadKeys("./src/Dictionary.txt");
 		
 		
 		//	Enters the primary loop
