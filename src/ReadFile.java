@@ -89,8 +89,7 @@ public class ReadFile {
 		      
 		      
 		    } catch (FileNotFoundException e) {
-		      System.out.println("An error occurred: " + e);
-		      e.printStackTrace();
+		      System.out.println("An error occurred: " + e + "\nAttempted filepath: " + filePath);
 		      return null;
 		    }
 		    
@@ -165,9 +164,8 @@ public class ReadFile {
 		      
 		      
 		    } catch (FileNotFoundException e) {
-		      System.out.println("An error occurred: " + e);
-		      e.printStackTrace();
-		      return null;
+			      System.out.println("An error occurred: " + e + "\nAttempted filepath: " + filePath);
+			      return null;
 		    }
 		    
 	 }
