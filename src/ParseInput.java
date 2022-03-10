@@ -7,7 +7,7 @@ public class ParseInput {
 	
 	
 	//	Grabs the text, then parses it
-	public static String[] getInput(Scanner scanner,ArrayList<Key> keys) {
+	public static String[] getInput(Scanner scanner, ArrayList<Key> keys) {
 		
 		String input = scanner.nextLine();
 		
@@ -109,7 +109,9 @@ public class ParseInput {
 				",",
 				"?",
 				"!",
-				"'"
+				"'",
+				"(",
+				")"
 		};
 		
 		
