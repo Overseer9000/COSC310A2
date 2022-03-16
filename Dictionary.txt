@@ -1,0 +1,93 @@
+affirmative: all right, alright, very well, of course, by all means, sure, certainly, absolutely, indeed, agreed
+	generic: "I will take care of that right away"
+negative: no, by no means, negative, not at all, never, prohibited, refused
+	generic: "I'm sorry I can't help with that"
+unknown: I don’t know what you’re saying
+	generic: “Sorry, I didn’t quite catch that. Could you repeat that, please?”
+	generic: “Sorry, I didn’t hear you. Could you repeat that a little louder, please?”
+	generic: “Sorry, I’m afraid I don’t follow you”
+	generic: “Sorry, I don’t quite understand”
+	generic: “Sorry, I don’t know what you mean”
+help: assitance, assist, aid, help out, be of service to, support
+	who: "I can provide help"
+	what: "Ask me anything and I will see what I can do"
+	when: "I can assist you whenever"
+	how: "Ask me anything and I will see what I can do"
+medical: injured, dying, sick, pills, bandaid, meds, wounded, medicine	
+	who: "The doctor currently on duty is _________"
+	what: "You can get your wounds treated at the medical bay"
+	when: "The medical bay is opertional at all hours"
+	where: "The medical bay is located at ________"
+repair: broken, worn out, fix 
+	who: "The engineer on duty is ________"
+	what: "You can get your vehicles fixed at the repair bay"
+	when: "The repair bay is opertaion from 9:00AM until 5:00PM"
+	where: "The repair bay is located ________"
+canteen: eat, hungry, chef, mess hall
+	who: "The Chef on duty is ________"
+	what: "You can get food at the canteen"
+	when: "The canteen is open at all hours"
+	where: "The canteen is located _______" 
+airlock: sealed, locked, unlocked, secure
+	generic: "The airlock is sealed"
+	where: "There are airlocks at every exit"
+	why: "There are airlocks all over the ship to prevent oxygen leaks"
+oxygen: air, air supply
+	generic: "We have sufficient oxygen for another 184 days"
+	why: "Oxygen is required in order for employees to survive"
+outside: space, moon
+	where: "We are currently located ______________"
+	what: "There is nothing but space outside"
+	who: "There is no one outside currently"
+earth: home, planet, command, mission
+	who: "Earth is currently home to the Human population"
+	what: "Earth is a planet located in the Milky Way galaxy"
+	where: "Earth is currently _____ light years away"
+crew: employee, employees, crew member, personnel, staff, workers
+	who: "There are currently __ employees on the Blue Dwarf"
+	what: "Each employee is required to complete tasks aboard the Blue Dwarf"
+	when: "The last employee arrived 53 days ago"
+	where: "There are employees located all around the ship"
+	why: "Employees are required in order to complete are assigned task"
+supply: supplies, stock, food, water
+	what: "We have sufficient food, water, oxygen and medicine"
+	when: "The last supply ship arrived 93 days ago, the next should arrive in 7 days"
+	where: "The supplies are located in the designated location"
+	why: "Food, water, oxygen and medicine are all required to keep the station functioning"
+security: safety, weapons
+	who: "There are currently two security officers on duty"
+	what: "Security officers are patrolling the station"
+	when: "The last shift rotation was 2 hours ago"
+	where: "Security officers are currently located at the canteen and the repair bay"
+	why: "Security officers provide peace and mind for other crew members"
+vehicles: rover, drone
+	what: "We have a rover and a drone on board the Blue Dwarf"
+	when: "The rover was last taken out 2 days ago, the drone was last taken out yesterday"
+	where: "Both rover and drone are currently docked"
+	why: "The rover allows for long distance exploration, the drone allows for inspection of the station without needing to leave"
+research: science, scientist, materials
+	who: "There are current 3 scientists aboard the Blue Dwarf"
+	what: "Research is currently being conducted on an unknown specimen found"
+	when: "Specimen under analysis for another 3 days"
+	where: "Research is done in the Science bay located ______"
+	why: "Science and research is the primary objective of the Blue Dwarf"
+bathroom: toilet, occupied, available, clean
+	who: "The bathrooms are currently not occupied"
+	when: "The bathrooms are always operational"
+	where: "The batrooms are located directly next to the sleeping quarters as well as captain quarters"
+time: day, night
+	what: "The current time is 10:00AM UTC"
+weather: where is space station locateD?
+	what: "The weather outside is low visibility"
+	why: "There is currently a sandstorm outside"
+mail: email, message, recording, contact, family
+	who: "________________________ has mail in their inbox"
+	what: "Classified"
+	when: "The last piece of mail recieved was 2 hours ago"
+	where: "Mail can be accesseed at any console"
+	why: "So employees can keep in touch with loves while on the Blue Dwarf"
+sleep: sleeping, sleeping quarters, bedroom, tired, nap, rest
+	where: “The sleeping quarters are located directly next to the captain quarters”
+	when: “The curfew is at 10:30 p.m.”
+	how: “Loosely strapped into sleeping bags facing any direction” 
+	what: “Personal sleeping compartments will be available” 
