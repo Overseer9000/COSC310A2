@@ -94,3 +94,14 @@ mail: email, message, recording, contact, family
 	why: "So employees can keep in touch with loves while on the Blue Dwarf"
 job: task, assignment
 	generic: "You are required to [ERROR, NO EMPLOYEE TASK FOUND]"
+human: HUMAN
+	generic: "hello human"
+	who: "I cannot share personal details about passengers or crew members"
+	what: "they are human"
+	when: "The last piece of mail received was 9 days ago"
+	where: "I am sorry, i can not disclose their location"
+	why: "Unfortunately, only their parents can answer that"
+city: City
+	where: "the city you mentioned is located on Earth"
+
+	
