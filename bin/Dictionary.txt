@@ -1,3 +1,9 @@
+unknown: I don’t know what you’re saying
+	generic: “Sorry, I didn’t quite catch that. Could you repeat that, please?”
+	generic: “Sorry, I didn’t hear you. Could you repeat that a little louder, please?”
+	generic: “Sorry, I’m afraid I don’t follow you”
+	generic: “Sorry, I don’t quite understand”
+	generic: “Sorry, I don’t know what you mean”
 greeting: greeting, greetings, hello, hi, hey, yo
 	generic: "Hello!"
 	how: "I am doing just fine, thanks for asking"
@@ -94,3 +100,17 @@ mail: email, message, recording, contact, family
 	why: "So employees can keep in touch with loves while on the Blue Dwarf"
 job: task, assignment
 	generic: "You are required to [ERROR, NO EMPLOYEE TASK FOUND]"
+sleep: sleeping, sleeping quarters, bedroom, tired, nap, rest
+	where: “The sleeping quarters are located directly next to the captain quarters”
+	when: “The curfew is at 10:30 p.m.”
+	how: “Loosely strapped into sleeping bags facing any direction” 
+	what: “Personal sleeping compartments will be available”
+human: HUMAN
+	generic: "hello human"
+	who: "I cannot share personal details about passengers or crew members"
+	what: "they are human"
+	when: "The last piece of mail received was 9 days ago"
+	where: "I am sorry, i can not disclose their location"
+	why: "Unfortunately, only their parents can answer that"
+negative: Negative
+	generic: "I understand your frustration, please let me help you"
