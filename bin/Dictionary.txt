@@ -104,4 +104,13 @@ sleep: sleeping, sleeping quarters, bedroom, tired, nap, rest
 	where: “The sleeping quarters are located directly next to the captain quarters”
 	when: “The curfew is at 10:30 p.m.”
 	how: “Loosely strapped into sleeping bags facing any direction” 
-	what: “Personal sleeping compartments will be available” 
+	what: “Personal sleeping compartments will be available”
+human: HUMAN
+	generic: "hello human"
+	who: "I cannot share personal details about passengers or crew members"
+	what: "they are human"
+	when: "The last piece of mail received was 9 days ago"
+	where: "I am sorry, i can not disclose their location"
+	why: "Unfortunately, only their parents can answer that"
+negative: Negative
+	generic: "I understand your frustration, please let me help you"
