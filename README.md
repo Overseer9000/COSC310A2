@@ -29,12 +29,12 @@ example: User > my name is Bob
          User > Where is Dave
          OS > Sorry I can not disclose their location.
 
+
 # Class: SentimentAnalysis
 Recognizes the sentiment of text using Socher et al’s sentiment model. This class takes input and checks if the sentiment behind our input is negative or not. If the sentiment is determined to be negative, Overseer responds with a generic response acknowledging the user's frustation.
 
 example: User > I am angry / User > I hate this place
          OS > I understand your frustration, please let me help you.
-         
          
 
 ## Text file: Dictionary
