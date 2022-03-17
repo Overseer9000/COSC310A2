@@ -4,12 +4,16 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+
 class ParseInputTest {
 
 	
 	@Test
 	void testParseInput() {
-		//fail("Not yet implemented");
+		//	Grabs a pipeline
+		StanfordCoreNLP pipeline = Pipeline.getPipeline();
+		
 		
 		//	Creates an ArrayList of test keys
 		ArrayList<Key> testKeys = new ArrayList<Key>();
@@ -17,20 +21,20 @@ class ParseInputTest {
 		
 		
 		//	Tests with the keys existing in the input
-		String[] getTestCaseOne = ParseInput.parseInput("Hey OS, what is a bird?", testKeys);
+		String[] getTestCaseOne = ParseInput.parseInput("Hey OS, what is a bird?", testKeys, pipeline);
 		String[] testCaseOne = new String[] {"bird", "what"};
 		for(int i = 0; i < testCaseOne.length; i++)
 			assertEquals(testCaseOne[i], getTestCaseOne[i]);
 		
 		
 		//	Test with a synonym within the input
-		getTestCaseOne = ParseInput.parseInput("Fowl creatures, what are they?", testKeys);
+		getTestCaseOne = ParseInput.parseInput("Fowl creatures, what are they?", testKeys, pipeline);
 		for(int i = 0; i < testCaseOne.length; i++)
 			assertEquals(testCaseOne[i], getTestCaseOne[i]);
 
 		
 		//	Test with whacky casing and punctuation
-		getTestCaseOne = ParseInput.parseInput("WHAT. IS. AN. AVIAN, OS?", testKeys);
+		getTestCaseOne = ParseInput.parseInput("WHAT. IS. AN. AVIAN, OS?", testKeys, pipeline);
 		for(int i = 0; i < testCaseOne.length; i++)
 			assertEquals(testCaseOne[i], getTestCaseOne[i]);
 	}

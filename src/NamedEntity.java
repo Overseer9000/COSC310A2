@@ -8,10 +8,10 @@ import java.util.List;
 
 public class NamedEntity {
 
-    public static boolean getNamedEntity(String text)
+    public static boolean getNamedEntity(String text, StanfordCoreNLP pipeline)
     {
 
-        StanfordCoreNLP stanfordCoreNLP = Pipeline.getPipeline();
+        StanfordCoreNLP stanfordCoreNLP = pipeline;
 
         CoreDocument coreDocument = new CoreDocument(text);
 

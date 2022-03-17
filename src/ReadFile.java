@@ -55,8 +55,9 @@ public class ReadFile {
 			    		  response = response.substring(1);
 			    		  
 			    		  //	Removes the quotations marks
+			    		  //		Had to add ADDITIONAL TYPES OF QUOTATION MARKS because somehow other characters showed up in the Dict!
 			    		  for(int i = 0; i < response.length(); i++)
-			    			  if(response.charAt(i) == '"') {
+			    			  if(response.charAt(i) == '"' || response.charAt(i) == '“' || response.charAt(i) == '”') {
 			    				  response = response.substring(0, i) + response.substring(i + 1, response.length());
 			    				  i--;
 			    			  }

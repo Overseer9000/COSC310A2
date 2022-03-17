@@ -1,5 +1,8 @@
 
 import java.util.Scanner;
+
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+
 import java.util.ArrayList;
 
 //	This class intends to parse the user input and extract the necessary keys
@@ -7,11 +10,11 @@ public class ParseInput {
 	
 	
 	//	Grabs the text, then parses it
-	public static String[] getInput(Scanner scanner, ArrayList<Key> keys) {
+	public static String[] getInput(Scanner scanner, ArrayList<Key> keys, StanfordCoreNLP pipeline) {
 		
 		String input = scanner.nextLine();
 		
-		return parseInput(input, keys);
+		return parseInput(input, keys, pipeline);
 		
 	}
 	
@@ -19,7 +22,7 @@ public class ParseInput {
 	
 	//	Given a single String input, returns a String array of legnth 2 containing both keys
 	//		If no key could be found, the String will be empty
-	public static String[] parseInput(String input, ArrayList<Key> keys) {
+	public static String[] parseInput(String input, ArrayList<Key> keys, StanfordCoreNLP pipeline) {
 		
 		//	Declares the String
 		String[] out = new String[2];
@@ -46,12 +49,16 @@ public class ParseInput {
 				
 				//Checks if input contains a name and returns a boolean value
 				//If input contains a name and sets primary key as "human"
-				if(NamedEntity.getNamedEntity(input)) {
+				if(NamedEntity.getNamedEntity(input, pipeline)) {
 					out[0]= "human";
 				}
 				
-				if(SentimentAnalysis.isNegative(input)) {
+				//	Likewise for negative sentiment
+				if(SentimentAnalysis.isNegative(input, pipeline)) {
 					out[0]= "negative";
+					
+					//	Sets the secondary key to generic as there only is one response
+					out[1] = "generic";
 				}
 				
 				if(matchesSecondary(delim, key))

@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+
 public class Startup {
 	
 	
@@ -20,14 +22,18 @@ public class Startup {
 		ArrayList<Key>				 				keys = ReadFile.loadKeys("./src/Dictionary.txt");
 		
 		
+		//	Gets the pipleine so it doens't have to make multiple calls to it
+		StanfordCoreNLP pipeline = Pipeline.getPipeline();
+		
+		
 		//	Enters the primary loop
-		mainLoop(dict, keys);
+		mainLoop(dict, keys, pipeline);
 		
 	}
 	
 	
 	//	This loop will call functions to read input and produce output
-	public static void mainLoop(HashMap<String, HashMap<String, String>> dict, ArrayList<Key> keys) {
+	public static void mainLoop(HashMap<String, HashMap<String, String>> dict, ArrayList<Key> keys, StanfordCoreNLP pipeline) {
 		
 		
 		//	Used to know when to exit the primary loop
@@ -48,7 +54,7 @@ public class Startup {
 			
 			
 			//	Fetches the keys from the user's input
-			String input[] = ParseInput.getInput(scanner, keys);
+			String input[] = ParseInput.getInput(scanner, keys, pipeline);
 			
 			
 			//	Fetches the appropriate response
@@ -82,7 +88,7 @@ public class Startup {
 			return out + "Sorry, I didn't understand \"" + keyOne + "\".";
 		
 		if(dict.get(keyOne).get(keyTwo) == null)
-			return out + "Sorry, I didn't understand \"" + keyTwo + "\".";
+			return out + "Sorry, I didn't understand \"" + keyTwo + "\" in this context.";
 		
 		return out + dict.get(keyOne).get(keyTwo);
 	}
