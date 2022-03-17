@@ -1,5 +1,8 @@
-
 import java.util.*;
+//HAVE TO REFERENCE THE jaw-bin.jar file. IE right click the jar file and add to build path as it is only referenced on my local machine
+import edu.smu.tspell.wordnet.Synset;
+import edu.smu.tspell.wordnet.WordNetDatabase;
+
 import java.io.*;
 
 public class ReadFile {
@@ -55,9 +58,8 @@ public class ReadFile {
 			    		  response = response.substring(1);
 			    		  
 			    		  //	Removes the quotations marks
-			    		  //		Had to add ADDITIONAL TYPES OF QUOTATION MARKS because somehow other characters showed up in the Dict!
 			    		  for(int i = 0; i < response.length(); i++)
-			    			  if(response.charAt(i) == '"' || response.charAt(i) == '“' || response.charAt(i) == '”') {
+			    			  if(response.charAt(i) == '"') {
 			    				  response = response.substring(0, i) + response.substring(i + 1, response.length());
 			    				  i--;
 			    			  }
@@ -121,11 +123,32 @@ public class ReadFile {
 		    		  String[] split = st.split(":");
 		    		  
 		    		  
+		    		  //Loads the WordNet Database in the local folder
+		    		  System.setProperty("wordnet.database.dir", "./WordNet");
+		    		  WordNetDatabase database = WordNetDatabase.getFileInstance();
+		    		  
+		    		  //determines the numbers of synsets (Synonyms) derived from the key word
+		    		  Synset[] synsets = database.getSynsets(split[0]);					
+						
+		    		  //Display the word for synsets retrieved
+		    		  
+		    		  if (synsets.length > 0)
+						{
+							for (int i = 0; i < synsets.length; i++)
+							{
+								//gets the Word Form for all the synonyms and stores them in a String Array
+								String[] wordForms = synsets[i].getWordForms();
+								//puts the synoynms into the original synonym string
+								synonyms = wordForms;
+							}
+						}
+		    		  
+		    		  
 		    		  //	Splits the second string by commas and stores values as a list
 		    		  //		This method is to remove any leading whitespace that might be present
-		    		  synonyms = split[1].split(",");
-		    		  for(int i = 0; i < synonyms.length; i++)
-		    			  synonyms[i] = synonyms[i].stripLeading();
+		    		  //synonyms = split[1].split(",");
+		    		  //for(int i = 0; i < synonyms.length; i++)
+		    		  //synonyms[i] = synonyms[i].stripLeading();
 		    		  
 		    		
 	    			  primary = split[0];
