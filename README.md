@@ -24,5 +24,18 @@ A Key contains two Strings and an ArrayList of Strings. The two Strings contain 
 ## Class: NamedEntity
 Recognizes named entities (person and company names, etc.) in text. Principally, this annotator uses machine learning sequence models to label entities. The NamedEntity class implements stanford's Named Entity Recognition API to our chatbot. This class takes the input typed by a user and looks for a person's name.
 
+example: User > my name is Bob
+         OS > hello human
+         User > Where is Dave
+         OS > Sorry I can not disclose their location.
+
+
+# Class: SentimentAnalysis
+Recognizes the sentiment of text using Socher et al’s sentiment model. This class takes input and checks if the sentiment behind our input is negative or not. If the sentiment is determined to be negative, Overseer responds with a generic response acknowledging the user's frustation.
+
+example: User > I am angry / User > I hate this place
+         OS > I understand your frustration, please let me help you.
+         
+
 ## Text file: Dictionary
 A custom formatted text file that contains an important word with a colon seperating it from its synonyms. The following indented lines give the sub-key (a "W" such as who, what, where...) where a colon then seperates it from the response.
