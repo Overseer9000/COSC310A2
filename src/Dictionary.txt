@@ -101,7 +101,6 @@ human: HUMAN
 	when: "The last piece of mail received was 9 days ago"
 	where: "I am sorry, i can not disclose their location"
 	why: "Unfortunately, only their parents can answer that"
-city: City
-	where: "the city you mentioned is located on Earth"
-
+negative: Negative
+	generic: "I understand your frustration, please let me help you"
 	

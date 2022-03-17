@@ -50,6 +50,9 @@ public class ParseInput {
 					out[0]= "human";
 				}
 				
+				if(SentimentAnalysis.isNegative(input)) {
+					out[0]= "negative";
+				}
 				
 				if(matchesSecondary(delim, key))
 					out[1] = key.getSecondary();
