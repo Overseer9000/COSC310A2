@@ -34,21 +34,32 @@ public class ParseInput {
 		
 		
 		
+		
 		//	Checks the input for text matching a primary and a secondary key
 		for(String delim : delimInput)
 			for(Key key : keys) {
 			
 				//	Java Strings are very silly, so this double .contains are used to ensure they equal
-				//		The == oprator rarely works properly with Strings
+				//		The == operator rarely works properly with Strings
 				if(matchesPrimary(delim, key))
 					out[0] = key.getPrimary();
 				
+				//Checks if input contains a name and returns a boolean value
+				//If input contains a name and sets primary key as "human"
+				if(NamedEntity.getNamedEntity(input)) {
+					out[0]= "human";
+				}
+				
+				if(SentimentAnalysis.isNegative(input)) {
+					out[0]= "negative";
+				}
 				
 				if(matchesSecondary(delim, key))
 					out[1] = key.getSecondary();
 			}
 		
-		
+	
+	
 		
 		//	By the earlier bad input check, this error shouldn't ever be thrown. It's here just in case
 		if(out[0] == null)
@@ -59,8 +70,7 @@ public class ParseInput {
 		if(out[1] == null)
 			out[1] = "generic";
 		
-		
-		
+	    
 		return out;
 	}
 	
