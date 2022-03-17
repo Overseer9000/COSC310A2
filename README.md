@@ -22,7 +22,7 @@ The ParseInput class contains several functions used in gathering, cleaning, and
 A Key contains two Strings and an ArrayList of Strings. The two Strings contain the primary and secondary keys used in the response hashmap, and the ArrayList contains all synonyms used for the primary key. The purpose of this class is to package up all information about keys into one place to make parsing text within ParseInput easier.
 
 ## Class: NamedEntity
-The NamedEntity class implements stanford's Named Entity Recognition API to our chatbot. This class takes the input typed by a user and looks for a person's name.
+Recognizes named entities (person and company names, etc.) in text. Principally, this annotator uses machine learning sequence models to label entities. The NamedEntity class implements stanford's Named Entity Recognition API to our chatbot. This class takes the input typed by a user and looks for a person's name.
 
 ## Text file: Dictionary
 A custom formatted text file that contains an important word with a colon seperating it from its synonyms. The following indented lines give the sub-key (a "W" such as who, what, where...) where a colon then seperates it from the response.
