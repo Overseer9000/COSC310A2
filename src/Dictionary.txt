@@ -100,8 +100,4 @@ human: HUMAN
 	what: "they are human"
 	when: "The last piece of mail received was 9 days ago"
 	where: "I am sorry, i can not disclose their location"
-	why: "Unfortunately, only their parents can answer that"
-city: City
-	where: "the city you mentioned is located on Earth"
-
-	
+	why: "Unfortunately, only their parents can answer that"	
