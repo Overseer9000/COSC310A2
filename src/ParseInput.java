@@ -31,6 +31,59 @@ public class ParseInput {
 		//	Cleans the String
 		String cleanInput = cleanString(input);
 		
+		
+		
+		//	If the users wants to search a specific term, sets up the appropriate keys
+		if(cleanInput.contains("what is ") || cleanInput.contains("what are")) {
+			
+			//	Gets the position of the substring that comprises the search
+			int len = 0;
+			if(cleanInput.contains("what is "))
+				len = "what is ".length();
+			else if(cleanInput.contains("what are"))
+				len = "what are ".length();
+			
+			
+			//	Sets the keys
+			out[0] = "search";
+			out[1] = cleanInput.substring(cleanInput.indexOf("what are") + len);
+			
+			
+			//	Removes whitespace from the search
+			//		URL, as used by the API, can't contain whitespace
+			//		WolframAPI uses '+' as the space character
+			while(out[1].contains(" "))
+				out[1] = out[1].replace(' ', '+');
+			
+			
+			return out;
+		}
+		
+		
+		//	If the users wants a definition via wikipedia
+		if(cleanInput.contains("define ")){
+			
+			//	Gets the position of the substring
+			int len = "define ".length();
+			
+			
+			//	Sets the keys
+			out[0] = "define";
+			out[1] = cleanInput.substring(cleanInput.indexOf("define ") + len);
+			
+			
+			//	Removes whitespace from the search
+			//		URL, as used by the API, can't contain whitespace
+			//		WikiAPI uses "%20" as the space character
+			while(cleanInput.indexOf(' ') != -1) {
+				int wIndex = cleanInput.indexOf(' ');
+				cleanInput = cleanInput.substring(0, wIndex) + "%20" + cleanInput.substring(wIndex + 1);
+			}
+			
+			return out;
+		}
+		
+		
 		//	Deliminate the String into an array via a space
 		String[] delimInput = cleanInput.split(" ");
 		
@@ -135,7 +188,10 @@ public class ParseInput {
 		for(String badChar : badChars)
 			input = input.replace((String) badChar, " ");
 		
+		
+		//	Makes the String a bit easier to parse
 		input = input.toLowerCase();
+		input = input.stripTrailing();
 		
 		return input;
 		
